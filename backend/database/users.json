@@ -1,0 +1,47 @@
+[
+  {
+    "id": "a40babda-7f97-4b68-8b6e-b6b6c48344b6",
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin",
+    "active": false,
+    "socketId": "",
+    "userImg": "50768201-3304-439c-8eda-b8b15d0c3277.jpeg"
+  },
+  {
+    "id": "a1c42c14-30e6-46b2-9073-cc24f3cf345c",
+    "name": "z",
+    "email": "z",
+    "password": "zzz",
+    "active": true,
+    "socketId": "izZ9Z-YDIg3s3iwnAAA9",
+    "userImg": ""
+  },
+  {
+    "id": "21f19c41-d3f3-4da6-a6de-efb5c540d281",
+    "name": "zwel",
+    "email": "zwel",
+    "password": "zwel",
+    "active": false,
+    "socketId": "",
+    "userImg": "038479aa-2f70-4f71-95f2-67853898f962.jpeg"
+  },
+  {
+    "id": "416ef900-52e3-4d49-b5f9-9ed0304b5da7",
+    "name": "zz",
+    "email": "Phonedkj@gmail.com",
+    "password": "phoneHtet",
+    "active": false,
+    "socketId": "",
+    "userImg": ""
+  },
+  {
+    "id": "15ab5ef7-936f-4404-b4a1-9fbc07fab3c3",
+    "name": "htet",
+    "email": "htet@gmail.com",
+    "password": "phoneHtet",
+    "active": false,
+    "socketId": "",
+    "userImg": ""
+  }
+]

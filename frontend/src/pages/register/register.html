@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../../tailwind-output/index.css" />
+  </head>
+  <body>
+    <div class="w-full min-h-screen flex items-center justify-center p-6">
+      <div class="w-full max-w-md flex flex-col items-center justify-center">
+        <h1 class="text-2xl font-bold mb-8">Register Account</h1>
+
+        <div class="relative w-full mb-6">
+          <input type="text" class="input-primary nameInput" />
+          <p class="input-primary-label nameInput-label">Username</p>
+        </div>
+
+        <div class="relative w-full mb-6">
+          <input type="email" class="input-primary emailInput" />
+          <p class="input-primary-label emailInput-label">Email</p>
+        </div>
+
+        <div class="relative w-full">
+          <input type="password" class="input-primary passwordInput" />
+          <p class="input-primary-label passwordInput-label">Password</p>
+        </div>
+
+        <p class="self-start mt-3 text-sm">
+          Already have an account?
+          <a href="/login" class="text-blue-500 hover:underline">Login</a>
+        </p>
+
+        <button
+          class="mt-8 btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+          id="registerBtn"
+        >
+          Register
+        </button>
+
+        <div class="flex items-center space-x-3 mt-5 invisible process">
+          <p>Processing</p>
+          <img
+            src="../../assets/loading.svg"
+            alt="sping"
+            class="animate-spin w-5 h-5"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="/pages/register/register.js" type="module"></script>
+  </body>
+</html>

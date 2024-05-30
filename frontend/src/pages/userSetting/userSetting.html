@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Setting</title>
+    <link rel="stylesheet" href="../..//tailwind-output/index.css" />
+    <!-- run the script before body -->
+    <script>
+      const auth = localStorage.getItem("auth");
+      if (!auth) {
+        window.location.href = "/login";
+      }
+    </script>
+  </head>
+  <body class="dark:bg-[#313235] transition-all">
+    <div
+      class="min-h-screen transition-all flex flex-col max-w-lg mx-auto p-4 md:p-8 bg-[#efefef] dark:bg-[#333439] dark:text-white"
+    >
+      <div class="flex-1">
+        <h1 class="font-bold text-xl sm:text-2xl mb-6 userSetting_title">
+          User Setting
+        </h1>
+
+        <!-- userAvatar -->
+        <div class="flex flex-col items-center">
+          <!-- user image -->
+          <div class="w-32 h-32 rounded-full overflow-hidden cursor-pointer">
+            <img
+              src="http://localhost:8080/assets/default-avatar.jpg"
+              alt="profile_img"
+              class="w-full h-full object-cover profile_img"
+            />
+          </div>
+
+          <!-- upload file -->
+          <label
+            for="uploadProfile"
+            class="transition-all profile_button block mt-4 cursor-pointer bg-[#dddddd] dark:bg-[#4a4a4a] py-2 px-6 rounded font-semibold hover:bg-[#d5d5d5] dark:hover:bg-[#505050]"
+            >Edit Profile
+            <input
+              type="file"
+              class="hidden opacity-0 profileInput"
+              id="uploadProfile"
+          /></label>
+        </div>
+
+        <div class="flex justify-between mt-4">
+          <p class="theme-text text-lg">Dark Mode</p>
+          <div
+            class="theme-toggler-btn relative flex items-center justify-between bg-black w-14 px-1 rounded-full cursor-pointer"
+          >
+            <p>🌛</p>
+            <p>🌞</p>
+            <div
+              class="theme-toggler-ball transition-all absolute w-[22px] h-[22px] rounded-full bg-white left-[3px]"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="btn-primary block rounded-md self-center w-full max-w-[80%]"
+        id="logOutBtn"
+      >
+        log out
+      </button>
+    </div>
+    <script src="/pages/userSetting/userSetting.js" type="module"></script>
+  </body>
+</html>

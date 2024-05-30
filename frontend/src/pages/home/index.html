@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat app</title>
+    <link rel="stylesheet" href="../../tailwind-output/index.css" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body
+    class="overflow-hidden min-h-screen transition-all dark:bg-[#333439] dark:text-white"
+  >
+    <!-- loading div -->
+
+    <div id="loading">
+      <div class="flex items-center justify-center h-screen">
+        <iconify-icon
+          icon="mingcute:loading-fill"
+          width="50"
+          height="50"
+          class="animate-spin"
+        ></iconify-icon>
+      </div>
+    </div>
+
+    <div class="hidden" id="mainchat">
+      <div class="md:flex justify-between">
+        <!-- left side -->
+        <div class="md:w-[65%] lg:w-[75%]">
+          <!-- menu bar -->
+          <div
+            class="h-[50px] border-b-2 border-line-input transition-all dark:border-[#515860] flex justify-between items-center px-3 fixed top-0 w-full dark:bg-[#333439] dark:text-white bg-white"
+          >
+            <!-- username Tag -->
+            <div>
+              <h4 class="userTag font-medium"></h4>
+            </div>
+            <!-- icon -->
+            <div class="flex">
+              <div id="settingBtn">
+                <iconify-icon
+                  icon="icon-park-solid:setting-two"
+                  width="30"
+                  height="30"
+                  class="px-2 cursor-pointer text-[#333] dark:text-white"
+                ></iconify-icon>
+              </div>
+              <div id="usersBtn" class="md:hidden">
+                <iconify-icon
+                  icon="mdi:users-group"
+                  width="30"
+                  height="30"
+                  class="px-2 cursor-pointer text-[#333] dark:text-white"
+                ></iconify-icon>
+              </div>
+            </div>
+          </div>
+
+          <!-- message box -->
+
+          <div
+            class="mt-[52px] pb-36 px-[15px] z-50 overflow-y-auto max-h-screen scrollbar md:w-full snap-y"
+            id="messagesDiv"
+          >
+            <div class="flex justify-center my-5">
+              <p class="text-[#A6A6A6]">
+                start your group conversation here with the folk
+              </p>
+            </div>
+            <!-- one message -->
+
+            <div id="messagesDiv_inner">
+              <!-- usercard -->
+            </div>
+
+            <!-- other messages -->
+
+            <div class="bottom_layer opacity-0"></div>
+
+            <div
+              class="fixed top-12 left-0 right-0 bottom-0 bg-white opacity-50 hidden"
+              id="opLayer"
+            ></div>
+          </div>
+
+          <!-- typing show -->
+          <div
+            class="flex items-center space-x-2 fixed transition-all bg-white dark:bg-[#333439] w-full bottom-[4.5rem] z-50 px-[15px] py-1 md:w-[65%] lg:w-[65%]"
+            id="typingContainer"
+          ></div>
+          <!-- inputs box -->
+          <div
+            class="transition-all dark:bg-[#333439] flex justify-between z-50 space-x-[10px] px-[15px] border-t-2 border-line-input py-[15px] fixed bottom-0 w-full bg-white md:w-[65%] lg:w-[75%]"
+          >
+            <input
+              id="inputMessage"
+              type="text"
+              placeholder="Message"
+              class="transition-all bg-[#E6E6E6] dark:bg-[#515860] px-5 py-2 rounded-full outline-none placeholder:text-[#B8B8B8] w-11/12 lg:w-full"
+            />
+            <div class="lg:hidden">
+              <button
+                id="sendMessage"
+                class="w-10 h-10 bg-[#E6E6E6] flex justify-center items-center rounded-full hover:bg-[#CACACA]"
+              >
+                <iconify-icon
+                  icon="material-symbols:send-outline"
+                  style="color: #699bf7"
+                  width="24"
+                  height="24"
+                ></iconify-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- right side -->
+        <div
+          class="fixed top-12 bottom-0 right-0 -z-50 w-80 overflow-hidden h-screen ph-L:w-96 md:w-[35%] lg:w-[25%]"
+          id="rightSide"
+        >
+          <div
+            class="absolute top-0 bottom-0 right-0 w-full bg-[#F4F4F4] dark:bg-[#313235] dark:text-white transition-all duration-150 h-full translate-x-full z-50 md:static md:-translate-x-0"
+            id="usersMenu"
+          >
+            <!-- online -->
+            <div class="p-5">
+              <div>
+                <div class="flex space-x-1">
+                  <p class="font-medium">ONLINE -</p>
+                  <p class="font-medium onNo"></p>
+                </div>
+                <!-- online people -->
+                <div class="mt-5" id="onPplParent">
+                  <!-- other people -->
+                </div>
+              </div>
+            </div>
+            <!-- offline -->
+            <div class="p-5 border-t-2 border-[#E6E6E6] dark:border-[#515860]">
+              <div>
+                <div class="flex space-x-1">
+                  <p class="font-medium">OFFLINE -</p>
+                  <p class="font-medium offNo"></p>
+                </div>
+                <!-- offline people -->
+                <div class="mt-5" id="offPplParent">
+                  <!-- other people -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/pages/home/index.js" type="module"></script>
+  </body>
+</html>

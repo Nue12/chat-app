@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../../tailwind-output/index.css" />
+  </head>
+  <body>
+    <div class="w-full min-h-screen flex items-center justify-center p-6">
+      <div class="w-full max-w-md flex flex-col items-center justify-center">
+        <h1 class="text-2xl font-bold mb-8">Login Account</h1>
+
+        <div class="relative w-full mb-6">
+          <input type="text" class="input-primary nameInput" />
+          <p class="input-primary-label nameInput-label">Username</p>
+        </div>
+
+        <div class="relative w-full">
+          <input type="password" class="input-primary passwordInput" />
+          <p class="input-primary-label passwordInput-label">Password</p>
+        </div>
+
+        <p class="self-start mt-3 text-sm">
+          If you are new, create acount at
+          <a href="/register" class="text-blue-500 hover:underline">Register</a>
+        </p>
+
+        <button class="mt-8 btn-primary" id="loginBtn">login</button>
+      </div>
+    </div>
+
+    <script type="module" src="/pages/login/login.js"></script>
+  </body>
+</html>
